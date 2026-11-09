@@ -1,0 +1,214 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --color-duo-green: #58cc02;
+  --color-duo-green-dark: #46a302;
+  --color-duo-blue: #1cb0f6;
+  --color-duo-blue-dark: #1899d6;
+  --color-duo-red: #ff4b4b;
+  --color-duo-red-dark: #ea2b2b;
+  --color-duo-orange: #ff9600;
+  --color-duo-yellow: #ffc800;
+  --color-duo-purple: #ce82ff;
+  --color-duo-purple-dark: #a855f7;
+  --color-duo-gray: #e5e5e5;
+  --color-duo-gray-dark: #afafaf;
+}
+
+:root {
+  --duo-green: #58cc02;
+  --duo-green-dark: #46a302;
+  --duo-blue: #1cb0f6;
+  --duo-blue-dark: #1899d6;
+  --duo-red: #ff4b4b;
+  --duo-red-dark: #ea2b2b;
+  --duo-orange: #ff9600;
+  --duo-yellow: #ffc800;
+  --duo-purple: #ce82ff;
+  --duo-gray: #e5e5e5;
+  --duo-border: #e5e5e5;
+  --duo-text: #4b4b4b;
+  --duo-bg: #ffffff;
+  --popover-bg: #ffffff;
+  --popover-border: #e5e5e5;
+  --popover-text: #4b4b4b;
+}
+
+.dark {
+  --duo-bg: #131f24;
+  --duo-border: #37464f;
+  --duo-text: #f1f5f9;
+  --popover-bg: #1f2d34;
+  --popover-border: #37464f;
+  --popover-text: #f1f5f9;
+}
+
+html.dark {
+  background-color: #131f24;
+  color: #f1f5f9;
+}
+
+body {
+  font-family: "Nunito", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  color: var(--duo-text);
+  background-color: var(--duo-bg);
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Explicit 100% Solid Popover Styling with High Elevation Shadow */
+.duo-popover-solid {
+  background-color: var(--popover-bg) !important;
+  border-color: var(--popover-border) !important;
+  color: var(--popover-text) !important;
+  opacity: 1 !important;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Duolingo 3D Button Styles */
+.duo-button-green {
+  background-color: #58cc02;
+  border-bottom: 4px solid #46a302;
+  color: #ffffff;
+  font-weight: 800;
+  transition: all 0.1s ease;
+}
+.duo-button-green:hover:not(:disabled) {
+  background-color: #61e002;
+}
+.duo-button-green:active:not(:disabled) {
+  border-bottom-width: 0px;
+  transform: translateY(4px);
+}
+
+.duo-button-blue {
+  background-color: #1cb0f6;
+  border-bottom: 4px solid #1899d6;
+  color: #ffffff;
+  font-weight: 800;
+  transition: all 0.1s ease;
+}
+.duo-button-blue:hover:not(:disabled) {
+  background-color: #38bdf8;
+}
+.duo-button-blue:active:not(:disabled) {
+  border-bottom-width: 0px;
+  transform: translateY(4px);
+}
+
+.duo-button-red {
+  background-color: #ff4b4b;
+  border-bottom: 4px solid #ea2b2b;
+  color: #ffffff;
+  font-weight: 800;
+  transition: all 0.1s ease;
+}
+.duo-button-red:hover:not(:disabled) {
+  background-color: #ff5e5e;
+}
+.duo-button-red:active:not(:disabled) {
+  border-bottom-width: 0px;
+  transform: translateY(4px);
+}
+
+.duo-button-gray {
+  background-color: #e5e5e5;
+  border-bottom: 4px solid #afafaf;
+  color: #777777;
+  font-weight: 800;
+  transition: all 0.1s ease;
+}
+.duo-button-gray:hover:not(:disabled) {
+  background-color: #ebebeb;
+}
+.duo-button-gray:active:not(:disabled) {
+  border-bottom-width: 0px;
+  transform: translateY(4px);
+}
+
+.duo-button-outline {
+  background-color: #ffffff;
+  border: 2px solid #e5e5e5;
+  border-bottom: 4px solid #e5e5e5;
+  color: #4b4b4b;
+  font-weight: 800;
+  transition: all 0.1s ease;
+}
+.duo-button-outline:hover:not(:disabled) {
+  background-color: #f7f7f7;
+}
+.duo-button-outline:active:not(:disabled) {
+  border-bottom-width: 2px;
+  transform: translateY(2px);
+}
+
+.duo-button-selected {
+  background-color: #ddf4ff !important;
+  border-color: #1cb0f6 !important;
+  border-bottom-color: #1899d6 !important;
+  color: #1899d6 !important;
+}
+
+/* Speech bubble pointer */
+.bubble-pointer-down {
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid #ffffff;
+}
+
+.dark .bubble-pointer-down {
+  border-top-color: #1f2d34;
+}
+
+/* Animations */
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s infinite ease-in-out;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(88, 204, 2, 0.7);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 14px rgba(88, 204, 2, 0);
+  }
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(88, 204, 2, 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px); }
+  40%, 80% { transform: translateX(6px); }
+}
+
+.animate-shake {
+  animation: shake 0.4s ease-in-out;
+}
