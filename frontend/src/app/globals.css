@@ -170,18 +170,120 @@ body {
   border-top-color: #1f2d34;
 }
 
-/* Animations */
-@keyframes bounce-gentle {
-  0%, 100% {
-    transform: translateY(0);
+/* Character Animations */
+@keyframes duo-blink {
+  0%, 92%, 100% {
+    transform: scaleY(1);
   }
-  50% {
-    transform: translateY(-6px);
+  95% {
+    transform: scaleY(0.1);
   }
 }
 
-.animate-bounce-gentle {
-  animation: bounce-gentle 2s infinite ease-in-out;
+.animate-duo-blink {
+  animation: duo-blink 3.5s infinite ease-in-out;
+  transform-origin: center;
+}
+
+@keyframes duo-idle-float {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-6px) rotate(1deg);
+  }
+}
+
+.animate-duo-float {
+  animation: duo-idle-float 2.8s infinite ease-in-out;
+}
+
+@keyframes wing-wave-left {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(-15deg);
+  }
+}
+
+.animate-wing-left {
+  animation: wing-wave-left 1.4s infinite ease-in-out;
+  transform-origin: 26px 45px;
+}
+
+@keyframes wing-wave-right {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(15deg);
+  }
+}
+
+.animate-wing-right {
+  animation: wing-wave-right 1.4s infinite ease-in-out;
+  transform-origin: 94px 45px;
+}
+
+@keyframes tear-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px) scale(0.6);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(2px) scale(1);
+  }
+  80% {
+    opacity: 0.8;
+    transform: translateY(14px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(22px) scale(0.5);
+  }
+}
+
+.animate-tear {
+  animation: tear-drop 1.6s infinite ease-in;
+}
+
+@keyframes character-bounce-jump {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  30% {
+    transform: translateY(-16px) scale(1.05, 0.95);
+  }
+  50% {
+    transform: translateY(-22px) scale(0.95, 1.05);
+  }
+  75% {
+    transform: translateY(0) scale(1.08, 0.92);
+  }
+}
+
+.animate-character-jump {
+  animation: character-bounce-jump 0.8s ease-out;
+}
+
+@keyframes note-float {
+  0% {
+    opacity: 0;
+    transform: translateY(0) translateX(0) scale(0.7);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) translateX(10px) scale(1.2);
+  }
+}
+
+.animate-note {
+  animation: note-float 2.2s infinite ease-out;
 }
 
 @keyframes pulse-ring {

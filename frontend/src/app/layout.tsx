@@ -5,7 +5,10 @@ export const metadata: Metadata = {
   title: "Duolingo - The world's best way to learn Spanish",
   description: "Learn languages by playing a game. It's 100% free, fun, and scientifically proven to work.",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+    ],
   },
 };
 
